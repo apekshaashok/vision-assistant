@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vision Assistant - AI Companion</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="main-layout">
+  <div class="feed-area" id="feed-container">
+    <img id="vision_feed" src="/vision_image" alt="Vision Feed" />
+    <div id="feed-overlay">Vision Feed Initializing...</div>
+  </div>
+  <div class="side-panel">
+    <h1>VISION ASSISTANT</h1>
+    <div id="statusBar"><b>Status:</b> <span id="statusText">Ready</span></div>
+    <button class="main-btn" onclick="setStatus('Running')">START Assistant</button>
+    <button class="main-btn" onclick="setStatus('Stopped')">Exit Application</button>
+    <h3>Narration Log &amp; System Messages:</h3>
+    <div class="log-box" id="live_output"></div>
+  </div>
+</div>
+<script>
+function fetchOutput() {
+    fetch('/web_output').then(res => res.json()).then(data => {
+        document.getElementById("live_output").innerText = data.output;
+    });
+}
+setInterval(fetchOutput, 2000);  // Refresh every 2s
+
+// Handy: update status by UI action
+function setStatus(s) {
+    document.getElementById("statusText").innerText = s;
+}
+
+function updateFeed() {
+    const img = document.getElementById("vision_feed");
+    img.src = "/vision_image?ts=" + new Date().getTime(); // prevent caching
+}
+setInterval(updateFeed, 1500); // Refresh image every 1.5s
+
+window.onload = function() {
+    fetchOutput();
+    updateFeed();
+    document.getElementById("feed-overlay").style.display = "none";
+};
+</script>
+</body>
+</html>

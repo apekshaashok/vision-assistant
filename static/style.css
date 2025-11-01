@@ -1,0 +1,104 @@
+body {
+    background: #18092b;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+}
+.main-layout {
+    display: flex; flex-direction: row; height: 100vh;
+}
+.feed-area {
+    background: #120826;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 2px solid #5a3fac;
+    position: relative;
+}
+#vision_feed {
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px #32196e80;
+    background: #232040;
+}
+#feed-overlay {
+    position: absolute;
+    color: #fff;
+    font-size: 1.5em;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    background: rgba(10,0,30,0.8);
+    border-radius: 12px;
+    padding: 18px 24px;
+    display: block;
+    z-index: 2;
+    pointer-events: none;
+}
+.side-panel {
+    background: #221141;
+    flex: 1;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 36px 34px 18px 34px;
+}
+h1 {
+    color: #ff70c2;
+    font-size: 2.5em;
+    margin-bottom: 0.1em;
+    letter-spacing: 2px;
+    font-weight: 700;
+    text-align: center;
+}
+#statusBar {
+    font-size: 1.1em;
+    color: #cec0ff;
+    text-align: left;
+    margin-bottom: 16px;
+    margin-top: 12px;
+}
+#statusText {
+    color: #92feef;
+}
+.main-btn {
+    background: #a184fc;
+    color: #120826;
+    border: none;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    margin-top: 8px;
+    padding: 16px 0;
+    width: 100%;
+    border-radius: 9px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #1b034266;
+    transition: background 0.1s;
+}
+.main-btn:hover {
+    background: #dd96ee;
+}
+.log-box {
+    background: #331f57;
+    color: #ff92f4;
+    font-family: "Fira Mono", "Consolas", "Menlo", monospace;
+    min-height: 160px;
+    margin-top: 12px;
+    padding: 12px 10px;
+    border-radius: 6px;
+    font-size: 1.08em;
+    overflow-y: auto;
+    max-height: 350px;
+    white-space: pre-line;
+    word-break: break-word;
+}
+h3 {
+    margin-top: 28px;
+    margin-bottom: 0.4em;
+    color: #ffcfff;
+    font-size: 1.15em;
+    letter-spacing: 1.5px;
+}
